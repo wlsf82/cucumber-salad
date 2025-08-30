@@ -1,0 +1,20 @@
+{
+  "name": "cucumber-salad",
+  "version": "1.0.0",
+  "description": "Sample project to integrate Cypress with the Cucumber plugin.",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run"
+  },
+  "keywords": [
+    "cypress-io",
+    "cucumber",
+    "testing"
+  ],
+  "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^15.0.0"
+  }
+}
