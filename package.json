@@ -5,7 +5,10 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:smoke": "cypress run --env tags='@smoke'",
+    "test:not:smoke": "cypress run --env tags='not @smoke'",
+    "test:with:html:report": "rm cucumber-report.html; cypress run; open cucumber-report.html"
   },
   "keywords": [
     "cypress-io",
@@ -15,6 +18,8 @@
   "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
   "license": "MIT",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "cypress": "^15.0.0"
   }
 }
