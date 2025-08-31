@@ -8,7 +8,8 @@
     "test": "cypress run",
     "test:smoke": "cypress run --env tags='@smoke'",
     "test:not:smoke": "cypress run --env tags='not @smoke'",
-    "test:with:html:report": "rm cucumber-report.html; cypress run; open cucumber-report.html"
+    "test:with:html:report": "rm cucumber-report.html; cypress run; open cucumber-report.html",
+    "test:with:html:report:win": "del cucumber-report.html & cypress run & start cucumber-report.html"
   },
   "keywords": [
     "cypress-io",

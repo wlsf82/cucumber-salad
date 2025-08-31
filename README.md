@@ -72,7 +72,13 @@ npm run test:not:smoke
 npm run test:with:html:report
 ```
 
-The above command should open a report like the following.
+#### Generate HTML Report (Windows)
+
+```bash
+npm run test:with:html:report:win
+```
+
+The above commands should open a report like the following.
 
 ![HTML Report Example](./html-report.png)
 
