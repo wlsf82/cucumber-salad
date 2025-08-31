@@ -61,7 +61,6 @@ cypress/
 │   ├── cookies/             # Cookie consent functionality tests
 │   ├── greeting/            # Greeting functionality tests
 │   └── itemsPerPage/        # Items per page functionality tests
-├── fixtures/                # Test data files
 ├── screenshots/             # Test failure screenshots
 └── support/
     ├── commands.js          # Custom Cypress commands
