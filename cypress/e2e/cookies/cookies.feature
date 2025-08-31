@@ -5,3 +5,4 @@ Feature: Cookies Consent Banner
     And I see the cookies consent banner
     When I click the Accept button
     Then the cookies banner is closed
+    And the cookieConsent cookie is set with the value accepted

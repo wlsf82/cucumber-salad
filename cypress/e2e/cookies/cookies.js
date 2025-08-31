@@ -15,3 +15,7 @@ When('I click the Accept button', () => {
 Then('the cookies banner is closed', () => {
   cy.get('[class^="CookieConsent_banner__"]').should('not.exist')
 })
+
+Then('the cookieConsent cookie is set with the value accepted', () => {
+  cy.getCookie('cookieConsent').should('have.property', 'value', 'accepted')
+})
