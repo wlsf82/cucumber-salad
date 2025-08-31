@@ -1,0 +1,7 @@
+Feature: Hacker Stories - Last Search
+
+  Scenario: shows the last three searched terms as buttons
+    Given I access the Hacker Stories web app
+    When I search for these terms
+      | Vue | Svelte | Angular |
+    Then I see "3" buttons, one for each of the last searched terms
