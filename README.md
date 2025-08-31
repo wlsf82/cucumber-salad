@@ -4,7 +4,7 @@ Sample project to integrate Cypress with the Cucumber plugin.
 
 ## 🥒 Project Overview
 
-This project demonstrates how to set up end-to-end testing using **Cypress** with **Cucumber** for behavior-driven development (BDD). The tests are written in Gherkin syntax and target the EngageSphere application.
+This project demonstrates how to set up end-to-end testing using **Cypress** with **Cucumber** for behavior-driven development (BDD). The tests are written in Gherkin syntax and target multiple applications including EngageSphere and Hacker Stories.
 
 ## 📋 Prerequisites
 
@@ -60,6 +60,7 @@ cypress/
 ├── e2e/                     # Feature files and step definitions
 │   ├── cookies/             # Cookie consent functionality tests
 │   ├── greeting/            # Greeting functionality tests
+│   ├── hackerStories/       # Hacker Stories app functionality tests
 │   └── itemsPerPage/        # Items per page functionality tests
 ├── screenshots/             # Test failure screenshots
 └── support/
@@ -74,12 +75,14 @@ cypress/
 ### Cookie Consent Banner
 
 - Tests cookie consent banner functionality
-- Verifies banner acceptance workflow
+- Verifies banner acceptance and decline workflows
+- Validates cookie values are properly set
 
 ### Greeting Functionality
 
 - Tests default greeting display
 - Tests customized greeting with user input
+- Icon display validation based on input values
 - Uses data-driven testing with Examples table
 
 ### Items Per Page
@@ -87,6 +90,12 @@ cypress/
 - Tests pagination functionality
 - Verifies correct number of items displayed per page
 - Data-driven tests with multiple page sizes (5, 10, 20, 50)
+
+### Hacker Stories
+
+- Tests search functionality in the Hacker Stories application
+- Validates last search terms are displayed as buttons
+- Uses data tables for multiple search term testing
 
 ## 🏷️ Test Tags
 
@@ -119,7 +128,9 @@ The project uses Cucumber tags for test organization:
 
 ### Feature Files
 
-Write feature files using Gherkin syntax in the `cypress/e2e/` directory:
+Write feature files using Gherkin syntax in the `cypress/e2e/` directory. Examples include:
+
+**Basic Scenario:**
 
 ```gherkin
 Feature: Feature Name
@@ -128,6 +139,35 @@ Feature: Feature Name
     Given I have a precondition
     When I perform an action
     Then I should see the expected result
+```
+
+**Data-driven Testing with Examples:**
+
+```gherkin
+Feature: Greeting
+
+  @smoke
+  Scenario: shows a customized greeting
+    When I type "<name>" in the name input field
+    Then I see the following greeting: Hi "<name>"!
+    And I see the following icon: "<icon>"
+
+    Examples:
+      | name     | icon            |
+      | Walmyr   | none            |
+      | Squirrel | lucide-squirrel |
+```
+
+**Data Tables for Multiple Values:**
+
+```gherkin
+Feature: Hacker Stories - Last Search
+
+  Scenario: shows the last three searched terms as buttons
+    Given I access the Hacker Stories web app
+    When I search for these terms
+      | Vue | Svelte | Angular |
+    Then I see "3" buttons, one for each of the last searched terms
 ```
 
 ### Step Definitions
@@ -142,14 +182,23 @@ Given('I have a precondition', () => {
 })
 ```
 
-## 🎯 Target Application
+## 🎯 Target Applications
 
-Tests are designed to run against the **EngageSphere** application:
+Tests are designed to run against multiple applications:
+
+### EngageSphere Application
 
 - URL: `https://engage-sphere.vercel.app/`
 - Cookie consent functionality
-- User greeting interface
-- Data table with pagination
+- User greeting interface with customizable names and icons
+- Data table with pagination controls
+
+### Hacker Stories Application
+
+- URL: `https://wlsf82-hacker-stories.web.app/`
+- Search functionality for Hacker News stories
+- Last searches feature with button display
+- Dynamic search term management
 
 ## 🤝 Contributing
 
