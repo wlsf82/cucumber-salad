@@ -72,6 +72,10 @@ npm run test:not:smoke
 npm run test:with:html:report
 ```
 
+The above command should open a report like the following.
+
+![HTML Report Example](./html-report.png)
+
 ## 🏗️ Project Structure
 
 ```text
