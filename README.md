@@ -43,17 +43,19 @@ Below is the result of a successfull execution.
 (Run Finished)
 
 
-       Spec                                                          Tests  Passing  Failing  Pending  Skipped
-  ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  EngageSphere/greeting/greeting.feature               00:02        3        3        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  EngageSphere/cookies/cookies.feature                 00:01        2        2        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  EngageSphere/itemsPerPage/itemsPerPage.feature       00:02        4        4        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  HackerStories/lastSearches/lastSearches.feature      00:01        1        1        -        -        - │
-  └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                                    00:08       10       10        -        -        -
+       Spec                                                            Tests  Passing  Failing  Pending  Skipped
+  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  EngageSphere/greeting/greeting.feature                 00:02        3        3        -        -        - │
+  ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  EngageSphere/cookies/cookies.feature                   00:01        2        2        -        -        - │
+  ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  EngageSphere/itemsPerPage/itemsPerPage.feature         00:02        4        4        -        -        - │
+  ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  HackerStories/lastSearches/lastSearches.feature        00:01        1        1        -        -        - │
+  ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  HackerStories/removeStories/removeStories.feature      00:01        1        1        -        -        - │
+  └──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                                      00:08       11       11        -        -        -
 ```
 
 #### Run Smoke Tests Only
@@ -100,19 +102,20 @@ The above commands should open a report like the following.
 
 ```text
 cypress/
-├── e2e/                  # Feature files and step definitions
-│   ├── EngageSphere/     # EngageSphere app functionality tests
-│   │   ├── cookies/      # Cookie consent functionality tests
-│   │   ├── greeting/     # Greeting functionality tests
-│   │   └── itemsPerPage/ # Items per page functionality tests
-│   └── HackerStories/    # Hacker Stories app functionality tests
-│       └── lastSearches/ # Last searches feature tests
-├── screenshots/          # Test failure screenshots
+├── e2e/                   # Feature files and step definitions
+│   ├── EngageSphere/      # EngageSphere app functionality tests
+│   │   ├── cookies/       # Cookie consent functionality tests
+│   │   ├── greeting/      # Greeting functionality tests
+│   │   └── itemsPerPage/  # Items per page functionality tests
+│   └── HackerStories/     # Hacker Stories app functionality tests
+│       └── lastSearches/  # Last searches feature tests
+│       └── removeStories/ # Remove Stories feature tests
+├── screenshots/           # Test failure screenshots
 └── support/
-  ├── commands.js         # Custom Cypress commands
-  ├── e2e.js              # Global test configuration
+  ├── commands.js          # Custom Cypress commands
+  ├── e2e.js               # Global test configuration
   └── step_definitions/
-    └── common.js         # Shared step definitions
+    └── common.js          # Shared step definitions
 ```
 
 ## 🧪 Test Features
@@ -151,6 +154,10 @@ Below are listed the features covered by tests for the Hacker Stories app with s
 - Tests search functionality in the Hacker Stories application
 - Validates last search terms are displayed as buttons
 - Uses data tables for multiple search term testing
+
+### Remove Stories
+
+Validates that removing a story from the Hacker Stories list updates the count from 20 to 19 stories.
 
 ## 🏷️ Test Tags
 
