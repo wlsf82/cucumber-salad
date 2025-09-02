@@ -1,5 +1,6 @@
 Feature: Hacker Stories - Last Search
 
+  @hackerstories
   Scenario: shows the last three searched terms as buttons
     Given I access the Hacker Stories web app
     When I search for these terms

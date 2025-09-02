@@ -17,7 +17,7 @@ This project demonstrates how to set up end-to-end testing using **Cypress** wit
 
 ```bash
 git clone <repository-url>
-cd cucumber-salad
+cd cucumber-salad/
 npm install
 ```
 
@@ -41,17 +41,17 @@ Below is the result of a successfull execution.
 (Run Finished)
 
 
-       Spec                                              Tests  Passing  Failing  Pending  Skipped
-  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  cookies/cookies.feature                  00:02        2        2        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  greeting/greeting.feature                00:02        3        3        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  hackerStories/lastSearches.feature       00:02        1        1        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  itemsPerPage/itemsPerPage.feature        00:02        4        4        -        -        - │
-  └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        00:10       10       10        -        -        -
+       Spec                                                          Tests  Passing  Failing  Pending  Skipped
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  EngageSphere/greeting/greeting.feature               00:02        3        3        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  EngageSphere/cookies/cookies.feature                 00:01        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  EngageSphere/itemsPerPage/itemsPerPage.feature       00:02        4        4        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  HackerStories/lastSearches/lastSearches.feature      00:01        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                                    00:08       10       10        -        -        -
 ```
 
 #### Run Smoke Tests Only
@@ -64,6 +64,18 @@ npm run test:smoke
 
 ```bash
 npm run test:not:smoke
+```
+
+#### Run EngageSphere Tests Only
+
+```bash
+npm run test:engagesphere
+```
+
+#### Run Hacker Stories Tests Only
+
+```bash
+npm run test:hackerstories
 ```
 
 #### Generate HTML Report
@@ -86,41 +98,53 @@ The above commands should open a report like the following.
 
 ```text
 cypress/
-├── e2e/                     # Feature files and step definitions
-│   ├── cookies/             # Cookie consent functionality tests
-│   ├── greeting/            # Greeting functionality tests
-│   ├── hackerStories/       # Hacker Stories app functionality tests
-│   └── itemsPerPage/        # Items per page functionality tests
-├── screenshots/             # Test failure screenshots
+├── e2e/                  # Feature files and step definitions
+│   ├── EngageSphere/     # EngageSphere app functionality tests
+│   │   ├── cookies/      # Cookie consent functionality tests
+│   │   ├── greeting/     # Greeting functionality tests
+│   │   └── itemsPerPage/ # Items per page functionality tests
+│   └── HackerStories/    # Hacker Stories app functionality tests
+│       └── lastSearches/ # Last searches feature tests
+├── screenshots/          # Test failure screenshots
 └── support/
-    ├── commands.js          # Custom Cypress commands
-    ├── e2e.js               # Global test configuration
-    └── step_definitions/
-        └── common.js        # Shared step definitions
+  ├── commands.js         # Custom Cypress commands
+  ├── e2e.js              # Global test configuration
+  └── step_definitions/
+    └── common.js         # Shared step definitions
 ```
 
 ## 🧪 Test Features
 
-### Cookie Consent Banner
+Below are listed the tests for both the EngageSphere and the Hacker Stories apps.
+
+### EngageSphere
+
+Below are listed the features covered by tests for the EngageSphere app with some of the tests' details.
+
+#### Cookie Consent Banner
 
 - Tests cookie consent banner functionality
 - Verifies banner acceptance and decline workflows
 - Validates cookie values are properly set
 
-### Greeting Functionality
+#### Greeting Functionality
 
 - Tests default greeting display
 - Tests customized greeting with user input
 - Icon display validation based on input values
 - Uses data-driven testing with Examples table
 
-### Items Per Page
+#### Items Per Page
 
 - Tests pagination functionality
 - Verifies correct number of items displayed per page
 - Data-driven tests with multiple page sizes (5, 10, 20, 50)
 
 ### Hacker Stories
+
+Below are listed the features covered by tests for the Hacker Stories app with some of the tests' details.
+
+#### Last Searches
 
 - Tests search functionality in the Hacker Stories application
 - Validates last search terms are displayed as buttons
@@ -130,7 +154,8 @@ cypress/
 
 The project uses Cucumber tags for test organization:
 
-- `@smoke` - Critical functionality tests that run in smoke test suite
+- `@smoke` - Critical functionality tests that run in the smoke test suite
+- `@engagesphere` or `@hackerstories` to specify which apps tests should run
 - Tests can be filtered using tags in npm scripts
 
 ## 📊 Reporting
@@ -225,7 +250,7 @@ Tests are designed to run against multiple applications:
 ### Hacker Stories Application
 
 - URL: `https://wlsf82-hacker-stories.web.app/`
-- Search functionality for Hacker News stories
+- Search functionality for Hacker Stories
 - Last searches feature with button display
 - Dynamic search term management
 
