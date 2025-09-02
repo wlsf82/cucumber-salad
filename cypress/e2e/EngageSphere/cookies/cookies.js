@@ -1,4 +1,4 @@
-import { When, Then, Given } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('I access the EngageSphare app without any cookies set', () => {
   cy.visit('https://engage-sphere.vercel.app/')
