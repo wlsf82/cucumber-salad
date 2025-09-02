@@ -1,8 +1,4 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-
-Given('I access the Hacker Stories web app', () => {
-  cy.visit('https://wlsf82-hacker-stories.web.app/')
-})
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('I search for these terms', table => {
   table.raw()[0].forEach(term => {
