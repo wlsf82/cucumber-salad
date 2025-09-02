@@ -264,6 +264,97 @@ Tests are designed to run against multiple applications:
 - Dynamic search term management
 - Stories removal
 
+## 🪄 Simplified Version Without Cucumber
+
+This branch (`simplified-version-without-cucumber`) demonstrates the same test scenarios implemented using standard Cypress syntax instead of Cucumber/Gherkin. The tests maintain the same functionality and coverage but are written in a more traditional Cypress format.
+
+### Key Differences
+
+**Test Structure:**
+
+- Tests use `describe()` and `it()` blocks instead of Gherkin feature files
+- Step definitions are replaced with direct Cypress commands
+- Comments in the test code reference the original Given/When/Then structure
+
+**Configuration:**
+
+- No Cucumber preprocessor configuration needed
+- Simplified `cypress.config.js` with only `@cypress/grep` for tag filtering
+- Reduced dependencies (only `cypress` and `@cypress/grep`)
+
+**Test Organization:**
+
+- Same folder structure as the Cucumber version
+- Tests are organized by application (EngageSphere/HackerStories) and feature
+- Tags are still used for test categorization (`@smoke`, `@engagesphere`, `@hackerstories`)
+
+### Example Test Comparison
+
+**Cucumber Version (Gherkin):**
+
+```gherkin
+Scenario: shows a customized greeting
+  When I type "<name>" in the name input field
+  Then I see the following greeting: Hi "<name>"!
+  And I see the following icon: "<icon>"
+```
+
+**Simplified Version (Cypress):**
+
+```javascript
+it(`shows a customized greeting: Hi ${name}!`, { tags: '@smoke' }, () => {
+  // When I type "<name>" in the name input field
+  cy.get('input[data-testid="name"]').type(name)
+  // Then I see the following greeting: Hi "<name>"!
+  cy.contains('h2', `Hi ${name}!`).should('be.visible')
+  // And I see the following icon: "<icon>"
+  if (icon !== 'none') {
+    cy.get(`.${icon}`).should('be.visible')
+  }
+})
+```
+
+### Data-Driven Testing
+
+The simplified version implements data-driven testing using JavaScript arrays and `forEach()` loops:
+
+```javascript
+const namesAndIcons = [
+  { name: 'Walmyr', icon: 'none' },
+  { name: 'Squirrel', icon: 'lucide-squirrel' }
+]
+
+namesAndIcons.forEach(({ name, icon }) => {
+  it(`shows a customized greeting: Hi ${name}!`, () => {
+    // Test implementation
+  })
+})
+```
+
+### Benefits of This Approach
+
+- **Simpler Setup:** No additional preprocessor configuration required
+- **Familiar Syntax:** Uses standard Cypress/Mocha/Chai syntax that most developers know
+- **Better IDE Support:** Full IntelliSense and debugging support
+- **Easier Maintenance:** Direct test code without translation layer (no need for step definitions)
+- **Faster Execution:** No preprocessing of Gherkin files needed
+- **More Concise:** This version has **59 fewer lines of code** and **7 fewer files** compared to the Cucumber implementation.
+- **Less Dependencies:** The `package-lock.json` file has **4754 fewer lines of code** compared to the Cucumber implementation.
+
+### Running the Simplified Tests
+
+The npm scripts work the same way:
+
+```bash
+npm test                   # Run all tests
+npm run test:smoke         # Run smoke tests only
+npm run test:not:smoke     # Run not-smoke tests only
+npm run test:engagesphere  # Run EngageSphere tests
+npm run test:hackerstories # Run Hacker Stories tests
+```
+
+The tag filtering still works using the `@cypress/grep` plugin, maintaining the same test organization capabilities as the Cucumber version.
+
 ## 🤝 Contributing
 
 1. Follow the existing project structure
