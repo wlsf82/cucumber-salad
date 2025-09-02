@@ -262,6 +262,7 @@ Tests are designed to run against multiple applications:
 - Search functionality for Hacker Stories
 - Last searches feature with button display
 - Dynamic search term management
+- Stories removal
 
 ## 🤝 Contributing
 
