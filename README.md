@@ -1,5 +1,7 @@
 # cucumber-salad
 
+[![CI](https://github.com/wlsf82/cucumber-salad/actions/workflows/ci.yml/badge.svg)](https://github.com/wlsf82/cucumber-salad/actions/workflows/ci.yml)
+
 Sample project to integrate Cypress with the Cucumber plugin.
 
 ## 🥒 Project Overview
