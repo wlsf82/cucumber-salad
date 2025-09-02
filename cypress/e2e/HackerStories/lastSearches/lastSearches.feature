@@ -1,4 +1,4 @@
-Feature: Hacker Stories - Last Search
+Feature: Last Searches
 
   @hackerstories
   Scenario: shows the last three searched terms as buttons
