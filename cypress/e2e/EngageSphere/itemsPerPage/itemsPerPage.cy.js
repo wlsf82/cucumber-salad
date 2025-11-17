@@ -8,12 +8,12 @@ describe('Items per page', { tags: '@engagesphere' }, () => {
   // Examples
   const numbers = ['5', '10', '20', '50']
 
-  numbers.forEach((numbers, index) => {
+  numbers.forEach((number, index) => {
     it(`shows the correct number per page (Example: ${index + 1})`, () => {
       // When I filter by "<number>" items per page
-      cy.get('[aria-label="Pagination limit"]').select(numbers)
+      cy.get('[aria-label="Pagination limit"]').select(number)
       // Then I see "<number>" table rows
-      cy.get('tbody tr').should('have.length', numbers)
+      cy.get('tbody tr').should('have.length', number)
     })
   })
 })
