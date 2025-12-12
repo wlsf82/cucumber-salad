@@ -16,7 +16,7 @@ describe('Cookies Consent Banner', { tags: '@engagesphere' }, () => {
   })
 
   it("declines to the cookie's policies", () => {
-    // When I click the Accept button
+    // When I click the Decline button
     cy.contains('button', 'Decline').click()
     // Then the cookies banner is closed
     cy.get('[class^="CookieConsent_banner__"]').should('not.exist')
