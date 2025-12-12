@@ -20,7 +20,7 @@ describe('Cookies Consent Banner', { tags: '@engagesphere' }, () => {
     cy.contains('button', 'Decline').click()
     // Then the cookies banner is closed
     cy.get('[class^="CookieConsent_banner__"]').should('not.exist')
-    // And the cookieConsent cookie is set with the value accepted
+    // And the cookieConsent cookie is set with the value declined
     cy.getCookie('cookieConsent').should('have.property', 'value', 'declined')
   })
 })
